@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فون فاكتوري - بيع الأرقام الوهمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--light-color);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--light-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1551836026-d5c88ac6d4af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Numbers Section */
+        .numbers {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .number-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 1px solid #eaeaea;
+        }
+        
+        .number-card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .country {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .buy-button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Order Form */
+        .order-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .close-form {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .platform-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .platform-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .platform-option.selected {
+            border-color: var(--secondary-color);
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        
+        .platform-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .submit-order {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-order:hover {
+            background-color: #27ae60;
+        }
+        
+        /* Admin Section */
+        .admin-section {
+            padding: 60px 0;
+            background-color: #f1f8ff;
+            border-top: 1px solid #e1e4e8;
+        }
+        
+        .admin-panel {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .refresh-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .orders-table th,
+        .orders-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        
+        .orders-table th {
+            background-color: #f6f8fa;
+            font-weight: 600;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-completed {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .platform-options {
+                flex-direction: column;
+            }
+            
+            .orders-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-mobile-alt logo-icon"></i>
+                    <div>
+                        <div class="logo-text">فون فاكتوري</div>
+                        <div class="logo-subtitle">أرقام وهمية بجودة عالية</div>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#numbers">الأرقام</a></li>
+                        <li><a href="#admin">لوحة التحكم</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>احصل على أرقام وهمية بجودة عالية</h1>
+            <p>خدمة مبتكرة تمكنك من الحصول على أرقام وهمية لتستخدمها في التسجيل بالمنصات المختلفة، مع إمكانية استلام الرسائل عبر الواتساب أو التلجرام</p>
+            <a href="#numbers" class="cta-button">اطلب رقمك الآن</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">لماذا تختار فون فاكتوري؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>خصوصية تامة</h3>
+                    <p>أرقامنا الوهمية تحمي هويتك الحقيقية وتضمن خصوصيتك الكاملة</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3>خدمة فورية</h3>
+                    <p>احصل على رقمك فوراً بعد إتمام عملية الدفع دون أي انتظار</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-globe feature-icon"></i>
+                    <h3>أرقام عالمية</h3>
+                    <p>نوفر أرقام من مختلف دول العالم لتلبي جميع احتياجاتك</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Numbers Section -->
+    <section class="numbers" id="numbers">
+        <div class="container">
+            <h2 class="section-title">اختر رقمك الوهمي</h2>
+            <div class="numbers-grid">
+                <div class="number-card">
+                    <div class="number">+1 (555) 123-4567</div>
+                    <div class="country">الولايات المتحدة</div>
+                    <div class="price">$2.99</div>
+                    <button class="buy-button" data-number="+1 (555) 123-4567" data-price="2.99">اطلب الآن</button>
+                </div>
+                <div class="number-card">
+                    <div class="number">+44 20 7946 0958</div>
+                    <div class="country">المملكة المتحدة</div>
+                    <div class="price">$3.49</div>
+                    <button class="buy-button" data-number="+44 20 7946 0958" data-price="3.49">اطلب الآن</button>
+                </div>
+                <div class="number-card">
+                    <div class="number">+49 30 901820</div>
+                    <div class="country">ألمانيا</div>
+                    <div class="price">$2.79</div>
+                    <button class="buy-button" data-number="+49 30 901820" data-price="2.79">اطلب الآن</button>
+                </div>
+                <div class="number-card">
+                    <div class="number">+33 1 42 86 83 26</div>
+                    <div class="country">فرنسا</div>
+                    <div class="price">$2.99</div>
+                    <button class="buy-button" data-number="+33 1 42 86 83 26" data-price="2.99">اطلب الآن</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Section -->
+    <section class="admin-section" id="admin">
+        <div class="container">
+            <div class="admin-panel">
+                <div class="admin-header">
+                    <h2 class="section-title">لوحة تحكم الطلبات</h2>
+                    <button class="refresh-btn" id="refreshOrders">
+                        <i class="fas fa-sync-alt"></i> تحديث الطلبات
+                    </button>
+                </div>
+                <div id="ordersContainer">
+                    <p>جاري تحميل الطلبات...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <div class="order-form" id="orderForm">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>طلب رقم وهمي</h2>
+                <button class="close-form">&times;</button>
+            </div>
+            <form id="numberOrderForm">
+                <div class="form-group">
+                    <label for="selectedNumber">الرقم المختار:</label>
+                    <input type="text" id="selectedNumber" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="customerName">الاسم الكامل:</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail">البريد الإلكتروني:</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>اختر المنصة لاستلام الرسائل:</label>
+                    <div class="platform-options">
+                        <div class="platform-option" data-platform="whatsapp">
+                            <i class="fab fa-whatsapp platform-icon" style="color: #25D366;"></i>
+                            <div>الواتساب</div>
+                        </div>
+                        <div class="platform-option" data-platform="telegram">
+                            <i class="fab fa-telegram platform-icon" style="color: #0088cc;"></i>
+                            <div>التلجرام</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selectedPlatform" required>
+                </div>
+                <div class="form-group" id="platformUsernameGroup" style="display: none;">
+                    <label id="platformUsernameLabel">اسم المستخدم:</label>
+                    <input type="text" id="platformUsername">
+                </div>
+                <button type="submit" class="submit-order">أكمل الطلب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>فون فاكتوري</h3>
+                    <p>منصة رائدة في توفير الأرقام الوهمية بجودة عالية وأسعار منافسة، مع دعم كامل للواتساب والتلجرام.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <p><a href="#home" style="color: white; text-decoration: none;">الرئيسية</a></p>
+                    <p><a href="#features" style="color: white; text-decoration: none;">المميزات</a></p>
+                    <p><a href="#numbers" style="color: white; text-decoration: none;">الأرقام</a></p>
+                    <p><a href="#contact" style="color: white; text-decoration: none;">اتصل بنا</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <p><i class="fas fa-envelope"></i> info@phonefactory.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                    <p><i class="fas fa-map-marker-alt"></i> دبي، الإمارات العربية المتحدة</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 فون فاكتوري</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // GitHub Integration
+        const GITHUB_USERNAME = 'your-username'; // استبدل باسم المستخدم الخاص بك
+        const GITHUB_REPO = 'virtual-numbers-orders'; // اسم المستودع
+        const GITHUB_TOKEN = 'your-token'; // استبدل بالتوكن الخاص بك
+        
+        // JavaScript for order form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderForm = document.getElementById('orderForm');
+            const closeFormBtn = document.querySelector('.close-form');
+            const buyButtons = document.querySelectorAll('.buy-button');
+            const selectedNumberInput = document.getElementById('selectedNumber');
+            const platformOptions = document.querySelectorAll('.platform-option');
+            const selectedPlatformInput = document.getElementById('selectedPlatform');
+            const platformUsernameGroup = document.getElementById('platformUsernameGroup');
+            const platformUsernameLabel = document.getElementById('platformUsernameLabel');
+            const platformUsernameInput = document.getElementById('platformUsername');
+            const orderFormElement = document.getElementById('numberOrderForm');
+            const refreshOrdersBtn = document.getElementById('refreshOrders');
+            const ordersContainer = document.getElementById('ordersContainer');
+            
+            // Open order form when buy button is clicked
+            buyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const number = this.getAttribute('data-number');
+                    const price = this.getAttribute('data-price');
+                    
+                    selectedNumberInput.value = number;
+                    orderForm.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close order form
+            closeFormBtn.addEventListener('click', function() {
+                orderForm.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close form when clicking outside
+            orderForm.addEventListener('click', function(e) {
+                if (e.target === orderForm) {
+                    orderForm.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Platform selection
+            platformOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    platformOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Set the selected platform value
+                    const platform = this.getAttribute('data-platform');
+                    selectedPlatformInput.value = platform;
+                    
+                    // Show username field
+                    platformUsernameGroup.style.display = 'block';
+                    
+                    // Update label based on platform
+                    if (platform === 'whatsapp') {
+                        platformUsernameLabel.textContent = 'رقم الواتساب:';
+                        platformUsernameInput.placeholder = 'أدخل رقم الهاتف المرتبط بالواتساب';
+                    } else if (platform === 'telegram') {
+                        platformUsernameLabel.textContent = 'اسم مستخدم التلجرام:';
+                        platformUsernameInput.placeholder = 'أدخل اسم المستخدم الخاص بك في التلجرام';
+                    }
+                });
+            });
+            
+            // Form submission
+            orderFormElement.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const number = selectedNumberInput.value;
+                const name = document.getElementById('customerName').value;
+                const email = document.getElementById('customerEmail').value;
+                const platform = selectedPlatformInput.value;
+                const username = platformUsernameInput.value;
+                
+                if (!platform) {
+                    alert('يرجى اختيار منصة لاستلام الرسائل');
+                    return;
+                }
+                
+                // Generate order ID
+                const orderId = 'ORD-' + Date.now();
+                
+                // Create order object
+                const order = {
+                    id: orderId,
+                    number: number,
+                    name: name,
+                    email: email,
+                    platform: platform,
+                    username: username,
+                    status: 'pending',
+                    date: new Date().toISOString()
+                };
+                
+                // Save order to GitHub
+                saveOrderToGitHub(order)
+                    .then(() => {
+                        alert(`شكراً ${name} على طلبك!\n\nرقم طلبك: ${orderId}\nسيتم إرسال الرقم ${number} إلى ${platform === 'whatsapp' ? 'الواتساب' : 'التلجرام'} على ${username}\n\nسيتم التواصل معك على ${email} لتأكيد الطلب`);
+                        
+                        // Reset form and close
+                        orderFormElement.reset();
+                        platformOptions.forEach(opt => opt.classList.remove('selected'));
+                        platformUsernameGroup.style.display = 'none';
+                        orderForm.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        
+                        // Refresh orders list
+                        loadOrdersFromGitHub();
+                    })
+                    .catch(error => {
+                        console.error('Error saving order:', error);
+                        alert('حدث خطأ أثناء حفظ الطلب. يرجى المحاولة مرة أخرى.');
+                    });
+            });
+            
+            // Load orders when page loads and when refresh button is clicked
+            refreshOrdersBtn.addEventListener('click', loadOrdersFromGitHub);
+            loadOrdersFromGitHub();
+            
+            // Function to save order to GitHub
+            async function saveOrderToGitHub(order) {
+                // In a real implementation, you would use the GitHub API
+                // This is a simplified version for demonstration
+                
+                // For demo purposes, we'll store orders in localStorage
+                // In a real app, you would use the GitHub API with authentication
+                const orders = JSON.parse(localStorage.getItem('virtualNumberOrders') || '[]');
+                orders.push(order);
+                localStorage.setItem('virtualNumberOrders', JSON.stringify(orders));
+                
+                // Simulate API call delay
+                return new Promise(resolve => setTimeout(resolve, 1000));
+                
+                /*
+                // Real GitHub API implementation would look like this:
+                const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/orders/${order.id}.json`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${GITHUB_TOKEN}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: `New order: ${order.id}`,
+                        content: btoa(JSON.stringify(order, null, 2))
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to save order to GitHub');
+                }
+                */
+            }
+            
+            // Function to load orders from GitHub
+            async function loadOrdersFromGitHub() {
+                ordersContainer.innerHTML = '<p>جاري تحميل الطلبات...</p>';
+                
+                // For demo purposes, we'll get orders from localStorage
+                // In a real app, you would use the GitHub API
+                setTimeout(() => {
+                    const orders = JSON.parse(localStorage.getItem('virtualNumberOrders') || '[]');
+                    displayOrders(orders);
+                }, 1000);
+                
+                /*
+                // Real GitHub API implementation would look like this:
+                try {
+                    const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/orders`, {
+                        headers: {
+                            'Authorization': `token ${GITHUB_TOKEN}`
+                        }
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to load orders from GitHub');
+                    }
+                    
+                    const files = await response.json();
+                    const orders = [];
+                    
+                    for (const file of files) {
+                        if (file.name.endsWith('.json')) {
+                            const fileResponse = await fetch(file.download_url);
+                            const order = await fileResponse.json();
+                            orders.push(order);
+                        }
+                    }
+                    
+                    displayOrders(orders);
+                } catch (error) {
+                    console.error('Error loading orders:', error);
+                    ordersContainer.innerHTML = '<p>حدث خطأ أثناء تحميل الطلبات. يرجى المحاولة مرة أخرى.</p>';
+                }
+                */
+            }
+            
+            // Function to display orders in the admin panel
+            function displayOrders(orders) {
+                if (orders.length === 0) {
+                    ordersContainer.innerHTML = '<p>لا توجد طلبات حتى الآن.</p>';
+                    return;
+                }
+                
+                // Sort orders by date (newest first)
+                orders.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                let html = `
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>رقم الطلب</th>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>الرقم</th>
+                                <th>المنصة</th>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                orders.forEach(order => {
+                    const date = new Date(order.date).toLocaleDateString('ar-SA');
+                    const statusClass = order.status === 'completed' ? 'status-completed' : 'status-pending';
+                    const statusText = order.status === 'completed' ? 'مكتمل' : 'قيد الانتظار';
+                    
+                    html += `
+                        <tr>
+                            <td>${order.id}</td>
+                            <td>${order.name}</td>
+                            <td>${order.email}</td>
+                            <td>${order.number}</td>
+                            <td>${order.platform === 'whatsapp' ? 'الواتساب' : 'التلجرام'}</td>
+                            <td>${date}</td>
+                            <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        </tr>
+                    `;
+                });
+                
+                html += `
+                        </tbody>
+                    </table>
+                `;
+                
+                ordersContainer.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>
