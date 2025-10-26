@@ -806,6 +806,10 @@
                 orders.push(order);
                 localStorage.setItem('virtualNumberOrders', JSON.stringify(orders));
                 
+                // إرسال الطلب إلى واتساب
+const message = `📱 طلب جديد:\n\nالاسم: ${order.name}\nالبريد: ${order.email}\nالرقم المطلوب: ${order.number}\nالمنصة: ${order.platform}\nالمعرف: ${order.username}\n\n📆 التاريخ: ${new Date(order.date).toLocaleString('ar-SA')}`;
+const phoneNumber = "967711771251"; // ← هنا ضع رقمك بدل X بدون علامة +
+window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
                 // Simulate API call delay
                 return new Promise(resolve => setTimeout(resolve, 1000));
                 
