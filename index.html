@@ -1,888 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فون فاكتوري - بيع الأرقام الوهمية</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --success-color: #2ecc71;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-icon {
-            font-size: 2.5rem;
-            color: var(--light-color);
-        }
-        
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo-subtitle {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--light-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1551836026-d5c88ac6d4af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-        }
-        
-        .cta-button:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.2rem;
-            color: var(--primary-color);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: var(--light-color);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-        
-        /* Numbers Section */
-        .numbers {
-            padding: 80px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .numbers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .number-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            border: 1px solid #eaeaea;
-        }
-        
-        .number-card:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-        }
-        
-        .number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .country {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-        
-        .buy-button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-            width: 100%;
-        }
-        
-        .buy-button:hover {
-            background-color: #2980b9;
-        }
-        
-        /* Order Form */
-        .order-form {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .form-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .form-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .close-form {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-color);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .platform-options {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .platform-option {
-            flex: 1;
-            text-align: center;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .platform-option.selected {
-            border-color: var(--secondary-color);
-            background-color: rgba(52, 152, 219, 0.1);
-        }
-        
-        .platform-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .submit-order {
-            background-color: var(--success-color);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            width: 100%;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-order:hover {
-            background-color: #27ae60;
-        }
-        
-        /* Admin Section */
-        .admin-section {
-            padding: 60px 0;
-            background-color: #f1f8ff;
-            border-top: 1px solid #e1e4e8;
-        }
-        
-        .admin-panel {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .refresh-btn {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .refresh-btn:hover {
-            background-color: #2980b9;
-        }
-        
-        .orders-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        .orders-table th,
-        .orders-table td {
-            padding: 12px 15px;
-            text-align: right;
-            border-bottom: 1px solid #e1e4e8;
-        }
-        
-        .orders-table th {
-            background-color: #f6f8fa;
-            font-weight: 600;
-        }
-        
-        .status-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        
-        .status-pending {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-completed {
-            background-color: #d1ecf1;
-            color: #0c5460;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-section p {
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                gap: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .platform-options {
-                flex-direction: column;
-            }
-            
-            .orders-table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>لعبة مريم — نسخة تعليمية</title>
+  <style>
+    :root{--bg:#0b0f12;--card:#0f1720;--accent:#e85d5d;--text:#e6eef6}
+    html,body{height:100%;margin:0;font-family:Tahoma,Arial,system-ui,Segoe UI,sans-serif;background:linear-gradient(180deg,#051018 0%,#08121a 60%);color:var(--text)}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:20px}
+    .card{width:100%;max-width:760px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.06));border-radius:12px;padding:20px;box-shadow:0 10px 40px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+    header{display:flex;align-items:center;gap:14px}
+    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(180deg,#222 0%,#111 100%);display:flex;align-items:center;justify-content:center;font-size:46px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 12px;color:#bcd3ea}
+    .dialog{background:rgba(255,255,255,0.02);padding:16px;border-radius:10px;min-height:220px;display:flex;flex-direction:column;gap:10px}
+    .line{padding:10px 12px;border-radius:8px;max-width:85%;}
+    .line.mariam{background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));align-self:flex-start}
+    .line.player{background:rgba(255,255,255,0.02);align-self:flex-end}
+    .choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+    button.choice{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:8px;color:var(--text);cursor:pointer}
+    button.choice:hover{border-color:var(--accent)}
+    footer{margin-top:12px;display:flex;gap:8px;align-items:center}
+    .hint{color:#9fb6d4;font-size:13px}
+    .meta{margin-left:auto;color:#9fb6d4;font-size:13px}
+    .hidden{display:none}
+    /* small responsive */
+    @media (max-width:480px){.avatar{width:72px;height:72px;font-size:34px}.dialog{min-height:180px}}
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-mobile-alt logo-icon"></i>
-                    <div>
-                        <div class="logo-text">فون فاكتوري</div>
-                        <div class="logo-subtitle">أرقام وهمية بجودة عالية</div>
-                    </div>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#features">المميزات</a></li>
-                        <li><a href="#numbers">الأرقام</a></li>
-                        <li><a href="#admin">لوحة التحكم</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
-                </nav>
-            </div>
+  <!--
+    ملف تعليمي: "لعبة مريم" — نسخة مبسطة قابلة للتشغيل داخل المتصفح.
+    كيفية الاستخدام:
+     - احفظ هذا الملف باسم maryam.html وافتحه في المتصفح.
+     - اللعبة تستخدم localStorage لحفظ التقدّم.
+     - تكشف اللعبة محتوى جديدًا كل يوم (يُحاكى عبر فاصل 24 ساعة)، لكن يمكنك اختبار التقدّم بتعديل "FAKE_NEXT_DAY" داخل الكود إلى true.
+    ملاحظات تطويرية:
+     - هذا الملف قصدي تعليمي — تجنّب إضافة أكواد ضارة أو تحميل من مصادر غير موثوقة.
+  -->
+  <div class="wrap">
+    <div class="card" role="application" aria-label="لعبة مريم التعليمية">
+      <header>
+        <div class="avatar">م</div>
+        <div>
+          <h1>لعبة مريم — نسخة تعليمية</h1>
+          <p class="lead">حوار تفاعلي بسيط بالعربية. كل يوم تكشف مريم قطعة من قصّتها.</p>
+          <div class="meta">نسخة تعليمية — لا تجمع بيانات خارج الجهاز</div>
         </div>
-    </header>
+      </header><main style="margin-top:14px">
+    <div id="dialog" class="dialog" aria-live="polite"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>احصل على أرقام وهمية بجودة عالية</h1>
-            <p>خدمة مبتكرة تمكنك من الحصول على أرقام وهمية لتستخدمها في التسجيل بالمنصات المختلفة، مع إمكانية استلام الرسائل عبر الواتساب أو التلجرام</p>
-            <a href="#numbers" class="cta-button">اطلب رقمك الآن</a>
-        </div>
-    </section>
+    <div id="choices" class="choices"></div>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">لماذا تختار فون فاكتوري؟</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt feature-icon"></i>
-                    <h3>خصوصية تامة</h3>
-                    <p>أرقامنا الوهمية تحمي هويتك الحقيقية وتضمن خصوصيتك الكاملة</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-bolt feature-icon"></i>
-                    <h3>خدمة فورية</h3>
-                    <p>احصل على رقمك فوراً بعد إتمام عملية الدفع دون أي انتظار</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-globe feature-icon"></i>
-                    <h3>أرقام عالمية</h3>
-                    <p>نوفر أرقام من مختلف دول العالم لتلبي جميع احتياجاتك</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Numbers Section -->
-    <section class="numbers" id="numbers">
-        <div class="container">
-            <h2 class="section-title">اختر رقمك الوهمي</h2>
-            <div class="numbers-grid">
-                <div class="number-card">
-                    <div class="number">+1 (555) 123-4567</div>
-                    <div class="country">الولايات المتحدة</div>
-                    <div class="price">$2.99</div>
-                    <button class="buy-button" data-number="+1 (555) 123-4567" data-price="2.99">اطلب الآن</button>
-                </div>
-                <div class="number-card">
-                    <div class="number">+44 20 7946 0958</div>
-                    <div class="country">المملكة المتحدة</div>
-                    <div class="price">$3.49</div>
-                    <button class="buy-button" data-number="+44 20 7946 0958" data-price="3.49">اطلب الآن</button>
-                </div>
-                <div class="number-card">
-                    <div class="number">+49 30 901820</div>
-                    <div class="country">ألمانيا</div>
-                    <div class="price">$2.79</div>
-                    <button class="buy-button" data-number="+49 30 901820" data-price="2.79">اطلب الآن</button>
-                </div>
-                <div class="number-card">
-                    <div class="number">+33 1 42 86 83 26</div>
-                    <div class="country">فرنسا</div>
-                    <div class="price">$2.99</div>
-                    <button class="buy-button" data-number="+33 1 42 86 83 26" data-price="2.99">اطلب الآن</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Admin Section -->
-    <section class="admin-section" id="admin">
-        <div class="container">
-            <div class="admin-panel">
-                <div class="admin-header">
-                    <h2 class="section-title">لوحة تحكم الطلبات</h2>
-                    <button class="refresh-btn" id="refreshOrders">
-                        <i class="fas fa-sync-alt"></i> تحديث الطلبات
-                    </button>
-                </div>
-                <div id="ordersContainer">
-                    <p>جاري تحميل الطلبات...</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Form -->
-    <div class="order-form" id="orderForm">
-        <div class="form-container">
-            <div class="form-header">
-                <h2>طلب رقم وهمي</h2>
-                <button class="close-form">&times;</button>
-            </div>
-            <form id="numberOrderForm">
-                <div class="form-group">
-                    <label for="selectedNumber">الرقم المختار:</label>
-                    <input type="text" id="selectedNumber" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="customerName">الاسم الكامل:</label>
-                    <input type="text" id="customerName" required>
-                </div>
-                <div class="form-group">
-                    <label for="customerEmail">البريد الإلكتروني:</label>
-                    <input type="email" id="customerEmail" required>
-                </div>
-                <div class="form-group">
-                    <label>اختر المنصة لاستلام الرسائل:</label>
-                    <div class="platform-options">
-                        <div class="platform-option" data-platform="whatsapp">
-                            <i class="fab fa-whatsapp platform-icon" style="color: #25D366;"></i>
-                            <div>الواتساب</div>
-                        </div>
-                        <div class="platform-option" data-platform="telegram">
-                            <i class="fab fa-telegram platform-icon" style="color: #0088cc;"></i>
-                            <div>التلجرام</div>
-                        </div>
-                    </div>
-                    <input type="hidden" id="selectedPlatform" required>
-                </div>
-                <div class="form-group" id="platformUsernameGroup" style="display: none;">
-                    <label id="platformUsernameLabel">اسم المستخدم:</label>
-                    <input type="text" id="platformUsername">
-                </div>
-                <button type="submit" class="submit-order">أكمل الطلب</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>فون فاكتوري</h3>
-                    <p>منصة رائدة في توفير الأرقام الوهمية بجودة عالية وأسعار منافسة، مع دعم كامل للواتساب والتلجرام.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>روابط سريعة</h3>
-                    <p><a href="#home" style="color: white; text-decoration: none;">الرئيسية</a></p>
-                    <p><a href="#features" style="color: white; text-decoration: none;">المميزات</a></p>
-                    <p><a href="#numbers" style="color: white; text-decoration: none;">الأرقام</a></p>
-                    <p><a href="#contact" style="color: white; text-decoration: none;">اتصل بنا</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>اتصل بنا</h3>
-                    <p><i class="fas fa-envelope"></i> info@phonefactory.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
-                    <p><i class="fas fa-map-marker-alt"></i> دبي، الإمارات العربية المتحدة</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>جميع الحقوق محفوظة &copy; 2023 فون فاكتوري</p>
-            </div>
-        </div>
+    <footer>
+      <div class="hint">نصيحة: حاول اختيار إجابات مختلفة لتكشف فروعًا متعددة.</div>
+      <div class="meta" id="progress"></div>
     </footer>
+  </main>
+</div>
 
-    <script>
-        // GitHub Integration placeholders (لمزيد لاحقاً)
-        const GITHUB_USERNAME = 'your-username'; // استبدل باسم المستخدم الخاص بك
-        const GITHUB_REPO = 'virtual-numbers-orders'; // اسم المستودع
-        const GITHUB_TOKEN = 'your-token'; // استبدل بالتوكن الخاص بك (إن رغبت بحفظ على GitHub)
-        
-        // JavaScript for order form functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const orderForm = document.getElementById('orderForm');
-            const closeFormBtn = document.querySelector('.close-form');
-            const buyButtons = document.querySelectorAll('.buy-button');
-            const selectedNumberInput = document.getElementById('selectedNumber');
-            const platformOptions = document.querySelectorAll('.platform-option');
-            const selectedPlatformInput = document.getElementById('selectedPlatform');
-            const platformUsernameGroup = document.getElementById('platformUsernameGroup');
-            const platformUsernameLabel = document.getElementById('platformUsernameLabel');
-            const platformUsernameInput = document.getElementById('platformUsername');
-            const orderFormElement = document.getElementById('numberOrderForm');
-            const refreshOrdersBtn = document.getElementById('refreshOrders');
-            const ordersContainer = document.getElementById('ordersContainer');
-            
-            // فتح نموذج الطلب عند الضغط على "اطلب الآن"
-            buyButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const number = this.getAttribute('data-number');
-                    const price = this.getAttribute('data-price');
-                    
-                    selectedNumberInput.value = number + ' — السعر: $' + price;
-                    orderForm.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            
-            // إغلاق النموذج
-            closeFormBtn.addEventListener('click', function() {
-                orderForm.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-            
-            // إغلاق عند النقر خارج النموذج
-            orderForm.addEventListener('click', function(e) {
-                if (e.target === orderForm) {
-                    orderForm.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // اختيار منصة (واتساب/تلجرام)
-            platformOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // إزالة المحدد من الكل
-                    platformOptions.forEach(opt => opt.classList.remove('selected'));
-                    
-                    // أضف المحدد للخيار المناقَر
-                    this.classList.add('selected');
-                    
-                    // ضَع قيمة المنصة في الحقل الخفي
-                    const platform = this.getAttribute('data-platform');
-                    selectedPlatformInput.value = platform;
-                    
-                    // إظهار حقل المعرف
-                    platformUsernameGroup.style.display = 'block';
-                    
-                    // تحديث تسمية الحقل وفق المنصة
-                    if (platform === 'whatsapp') {
-                        platformUsernameLabel.textContent = 'رقم الواتساب:';
-                        platformUsernameInput.placeholder = 'أدخل رقم الهاتف المرتبط بالواتساب';
-                    } else if (platform === 'telegram') {
-                        platformUsernameLabel.textContent = 'اسم مستخدم التلجرام:';
-                        platformUsernameInput.placeholder = 'أدخل اسم المستخدم الخاص بك في التلجرام';
-                    }
-                });
-            });
-            
-            // إرسال النموذج
-            orderFormElement.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const number = document.getElementById('selectedNumber').value.split(' — السعر: ')[0];
-                const name = document.getElementById('customerName').value;
-                const email = document.getElementById('customerEmail').value;
-                const platform = selectedPlatformInput.value;
-                const username = platformUsernameInput.value;
-                
-                if (!platform) {
-                    alert('يرجى اختيار منصة لاستلام الرسائل');
-                    return;
-                }
-                
-                // توليد رقم طلب فريد
-                const orderId = 'ORD-' + Date.now();
-                
-                // بناء كائن الطلب
-                const order = {
-                    id: orderId,
-                    number: number,
-                    name: name,
-                    email: email,
-                    platform: platform,
-                    username: username,
-                    status: 'pending',
-                    date: new Date().toISOString()
-                };
-                
-                // حفظ الطلب وإرساله
-                saveOrderToGitHub(order)
-                    .then(() => {
-                        alert(`شكراً ${name} على طلبك!\n\nرقم طلبك: ${orderId}\nسيتم إرسال الرقم ${number} إلى ${platform === 'whatsapp' ? 'الواتساب' : 'التلجرام'} على ${username}\n\nسيتم التواصل معك على ${email} لتأكيد الطلب`);
-                        
-                        // إعادة تهيئة النموذج وإغلاقه
-                        orderFormElement.reset();
-                        platformOptions.forEach(opt => opt.classList.remove('selected'));
-                        platformUsernameGroup.style.display = 'none';
-                        orderForm.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                        
-                        // إعادة تحميل الطلبات في لوحة التحكم
-                        loadOrdersFromGitHub();
-                    })
-                    .catch(error => {
-                        console.error('Error saving order:', error);
-                        alert('حدث خطأ أثناء حفظ الطلب. يرجى المحاولة مرة أخرى.');
-                    });
-            });
-            
-            // تحميل الطلبات عند فتح الصفحة أو عند الضغط على زر التحديث
-            refreshOrdersBtn.addEventListener('click', loadOrdersFromGitHub);
-            loadOrdersFromGitHub();
-            
-            // ========== دوال الحفظ والتحميل ==========
-            // ملاحظة: سنستخدم localStorage كمخزن تجريبي محلي باسم "virtualNumberOrders"
-            
-            // حفظ الطلب (LocalStorage) + إرسال إلى واتساب رقمك
-            async function saveOrderToGitHub(order) {
-                // حفظ الطلب في LocalStorage
-                const orders = JSON.parse(localStorage.getItem('virtualNumberOrders') || '[]');
-                orders.push(order);
-                localStorage.setItem('virtualNumberOrders', JSON.stringify(orders));
-                
-                // --- إرسال الطلب إلى واتساب رقمك (967711771251) ---
-                // الرسالة المنسقة
-                const message = `📱 طلب جديد من فون فاكتوري\n\n🔹 رقم الطلب: ${order.id}\n🔹 الاسم: ${order.name}\n🔹 البريد: ${order.email}\n🔹 الرقم المطلوب: ${order.number}\n🔹 المنصة: ${order.platform}\n🔹 المعرف: ${order.username}\n🔹 التاريخ: ${new Date(order.date).toLocaleString('ar-SA')}\n\n⚠️ تأكد متابعة الطلب وتأكيد الدفع.`;
-                
-                // رقمك مع كود الدولة (بدون +)
-                const phoneNumber = "967711771251";
-                
-                // افتح نافذة واتساب ليرسل المستخدم الرسالة — سيتركز على هاتفك
-                // ملاحظة: هذا يفتح رابط في نافذة/تبويب جديد يحتوي رسالة جاهزة للإرسال.
-                window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
-                
-                // محاكاة تأخير كما في النسخة التجريبية
-                return new Promise(resolve => setTimeout(resolve, 800));
-            }
-            
-            // تحميل وعرض الطلبات في لوحة التحكم
-            async function loadOrdersFromGitHub() {
-                ordersContainer.innerHTML = '<p>جاري تحميل الطلبات...</p>';
-                
-                // هنا نستعمل localStorage (نسخة تجريبية)
-                setTimeout(() => {
-                    const orders = JSON.parse(localStorage.getItem('virtualNumberOrders') || '[]');
-                    displayOrders(orders);
-                }, 500);
-            }
-            
-            // عرض الطلبات في جدول
-            function displayOrders(orders) {
-                if (orders.length === 0) {
-                    ordersContainer.innerHTML = '<p>لا توجد طلبات حتى الآن.</p>';
-                    return;
-                }
-                
-                // ترتيب حسب الأحدث أولاً
-                orders.sort((a, b) => new Date(b.date) - new Date(a.date));
-                
-                let html = `
-                    <table class="orders-table">
-                        <thead>
-                            <tr>
-                                <th>رقم الطلب</th>
-                                <th>الاسم</th>
-                                <th>البريد الإلكتروني</th>
-                                <th>الرقم</th>
-                                <th>المنصة</th>
-                                <th>التاريخ</th>
-                                <th>الحالة</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                `;
-                
-                orders.forEach(order => {
-                    const date = new Date(order.date).toLocaleDateString('ar-SA');
-                    const statusClass = order.status === 'completed' ? 'status-completed' : 'status-pending';
-                    const statusText = order.status === 'completed' ? 'مكتمل' : 'قيد الانتظار';
-                    
-                    html += `
-                        <tr>
-                            <td>${order.id}</td>
-                            <td>${order.name}</td>
-                            <td>${order.email}</td>
-                            <td>${order.number}</td>
-                            <td>${order.platform === 'whatsapp' ? 'الواتساب' : 'التلجرام'}</td>
-                            <td>${date}</td>
-                            <td><span class="status-badge ${statusClass}">${statusText}</span></td>
-                        </tr>
-                    `;
-                });
-                
-                html += `
-                        </tbody>
-                    </table>
-                `;
-                
-                ordersContainer.innerHTML = html;
-            }
-        });
-    </script>
-</body>
+  </div>  <script>
+    // إعداد القصة: مصفوفة من الأيام. كل يوم يحتوي على مجموعة من الأسطر وأسئلة.
+    const STORY = [
+      {
+        day:1,
+        lines:[
+          "...",
+          "أنا مريم. هل ستساعدني؟",
+          "لقد ضعت في الغابة."
+        ],
+        choices:[
+          {id:'c1', text:'نعم، سأساعدك.'},
+          {id:'c2', text:'من أنت؟'}
+        ]
+      },
+      {
+        day:2,
+        lines:[
+          "اليوم يبدو مختلفًا.",
+          "أسمع أصواتًا، لكن لا أحد يرد عليّ."
+        ],
+        choices:[
+          {id:'c3', text:'ما الذي حدث لك؟'},
+          {id:'c4', text:'هل أنت خائفة؟'}
+        ]
+      },
+      {
+        day:3,
+        lines:[
+          "أحيانًا أتذكّر أبوابًا تُغلَق...",
+          "وقالوا لي: لا تخرجي وحدك."
+        ],
+        choices:[
+          {id:'c5', text:'هل تعيشين مع عائلتك؟'},
+          {id:'c6', text:'من قال لك ذلك؟'}
+        ]
+      },
+      {
+        day:4,
+        lines:[
+          "الظلام هنا طويل...",
+          "أحيانًا أرى ظلًا يشبهه... ولا أعرف اسمه."
+        ],
+        choices:[
+          {id:'c7', text:'هل هذا الظل مؤذي؟'},
+          {id:'c8', text:'ألا تريدين العودة للمنزل؟'}
+        ]
+      },
+      {
+        day:5,
+        lines:[
+          "أخيرًا... شعرت بشيء يشبه السلام لثوانٍ...",
+          "هل يمكنك البقاء معي؟"
+        ],
+        choices:[
+          {id:'c9', text:'سأبقى إلى أن تروِ كل شيء.'},
+          {id:'c10', text:'أنتِ بحاجة لمساعدة حقيقية.'}
+        ]
+      }
+    ];
+
+    // ---------- إدارة التقدّم في localStorage ----------
+    const KEY = 'maryam_progress_v1';
+    const FAKE_NEXT_DAY = false; // للمطوّرين: ضعه true لتجاوز شرط 24 ساعة أثناء الاختبار
+
+    function loadProgress(){
+      try{
+        const raw = localStorage.getItem(KEY);
+        if(!raw) return {lastDay:0, lastSeenTs:0, choices:{}};
+        return JSON.parse(raw);
+      }catch(e){
+        return {lastDay:0, lastSeenTs:0, choices:{}};
+      }
+    }
+    function saveProgress(p){ localStorage.setItem(KEY, JSON.stringify(p)); }
+
+    // تحقق إن كان يمكن الانتقال ليوم جديد
+    function canAdvance(prevTs){
+      if(FAKE_NEXT_DAY) return true;
+      if(!prevTs) return true;
+      const ms24 = 24*60*60*1000;
+      return (Date.now() - prevTs) >= ms24;
+    }
+
+    // ---------- واجهة المستخدم ----------
+    const dialogEl = document.getElementById('dialog');
+    const choicesEl = document.getElementById('choices');
+    const progressEl = document.getElementById('progress');
+
+    let progress = loadProgress();
+
+    function render(){
+      dialogEl.innerHTML='';
+      choicesEl.innerHTML='';
+
+      const lastDay = progress.lastDay || 0;
+      const nextDayIndex = Math.min(lastDay, STORY.length-1);
+      // نعرض اليوم الحالي (أو المقدّم)
+      const showDay = STORY[nextDayIndex];
+
+      // نص ترحيبي قصير
+      appendLine('مريم', showDay.lines[0]);
+
+      // نعرض باقي الأسطر بالتدرج
+      for(let i=1;i<showDay.lines.length;i++) appendLine('mariam', showDay.lines[i]);
+
+      // عرض خيارات اليوم
+      showDay.choices.forEach(ch => {
+        const btn = document.createElement('button');
+        btn.className='choice';
+        btn.textContent = ch.text;
+        btn.onclick = ()=>onChoose(showDay.day, ch.id);
+        choicesEl.appendChild(btn);
+      });
+
+      // معلومات التقدّم
+      const seenDate = progress.lastSeenTs ? new Date(progress.lastSeenTs).toLocaleString('ar-EG') : 'لم يُسجل بعد';
+      progressEl.textContent = `يوم اللعبة: ${showDay.day} — آخر زيارة: ${seenDate}`;
+    }
+
+    function appendLine(who,text){
+      const div = document.createElement('div');
+      div.className = 'line ' + (who==='mariam'?'mariam':'player');
+      div.textContent = text;
+      dialogEl.appendChild(div);
+      // تمرير تلقائي للمحتوى
+      dialogEl.scrollTop = dialogEl.scrollHeight;
+    }
+
+    function onChoose(day,choiceId){
+      // سجّل اختيار اللاعب
+      progress.choices = progress.choices||{};
+      progress.choices[`day${day}`] = choiceId;
+      // سجّل وقت الزيارة
+      const now = Date.now();
+      progress.lastSeenTs = now;
+
+      // اذا كان اللاعب في اخر يوم المتاح وسبق له زيارة اليوم، لا نزيد اليوم.
+      if(progress.lastDay < STORY.length && canAdvance(progress._prevTs)){
+        // زيادة المرحلة فقط إن وصل اللاعب لنهاية اليوم
+        if(progress.lastDay < day) progress.lastDay = day;
+        // لاحظ التاريخ السابق (لاستعمال canAdvance لاحقًا)
+        progress._prevTs = now;
+      }
+
+      saveProgress(progress);
+
+      // إظهار رد مريم بناءً على الاختيار (نسخة مبسطة)
+      const shortReply = {
+        'c1':'شكرًا... أعتقد أنني سأثق بك.',
+        'c2':'اسمي مهم... لكن صوتك هو الأهم الآن.',
+        'c3':'هم يعرفون أسماءنا قبل أن نعرفها.',
+        'c4':'نعم. الخوف صديق قديم هنا.',
+        'c5':'لا. لا أذكر وجوهًا واضحة.',
+        'c6':'همسٌ خلف الباب... فقط همس.',
+        'c7':'أحيانًا... أحيانًا يلمسني الظل.',
+        'c8':'أريد، لكن الطريق كثير من الأقفال.',
+        'c9':'ابقَ. سأحكي لك كل شيء بصوت منخفض.',
+        'c10':'لا أعرف من أطلبه... ربما أنت.'
+      }[choiceId] || '...';
+
+      appendLine('player', document.querySelector(`button.choice:focus`)?.textContent || 'أجبت.');
+      setTimeout(()=>appendLine('mariam', shortReply),600);
+
+      // بعد اختيار، إن كان هناك يوم تالي ومرّ 24 ساعة - نخبر اللاعب
+      const canNext = canAdvance(progress._prevTs);
+      if(!canNext){
+        const remain = (24*60*60*1000) - (Date.now() - (progress._prevTs||0));
+        appendLine('mariam', 'عد غدًا لأكشف المزيد.');
+      } else {
+        // تقدّم إلى اليوم التالي إذا كان موجودًا
+        if(progress.lastDay < STORY.length) {
+          progress.lastDay = Math.min(progress.lastDay+1, STORY.length);
+          progress._prevTs = Date.now();
+          saveProgress(progress);
+          appendLine('mariam', 'لقد انتقلتُ قليلاً في الذاكرة... ارجع غدًا إن أردت المزيد.');
+        }
+      }
+
+      // تحديث العرض البسيط بعد تأخير
+      setTimeout(render,900);
+    }
+
+    // إذا كانت هذه الزيارة الأولى: اضبط lastDay = 1
+    if(!progress.lastDay){
+      progress.lastDay = 1;
+      progress._prevTs = progress.lastSeenTs || 0;
+      saveProgress(progress);
+    }
+
+    // زر إعادة تعيين (للتطوير والاختبار) — يُعرض إذا ضغط المستخدم مع Shift
+    window.addEventListener('keydown', (e)=>{
+      if(e.key==='R' && (e.shiftKey||e.metaKey)){
+        if(confirm('هل تريد مسح تقدم اللعبة؟')){
+          localStorage.removeItem(KEY);
+          progress = loadProgress();
+          progress.lastDay = 1;
+          saveProgress(progress);
+          render();
+        }
+      }
+    })
+
+    // تشغيل العرض
+    render();
+  </script></body>
 </html>
